@@ -77,6 +77,7 @@ cp .env.example .env
 # Run docker compose
 docker-compose -f docker-compose.prod.yml up -d
 ```
+open http://localhost:8383
 
 ## 🛠 Development Setup
 
