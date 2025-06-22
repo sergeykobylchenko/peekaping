@@ -1,6 +1,7 @@
 package auth
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 	"peekaping/src/utils"
@@ -48,7 +49,7 @@ func (c *Controller) validateWithDetails(dto interface{}) error {
 				}
 			}
 
-			return fmt.Errorf(strings.Join(errorMessages, "; "))
+			return errors.New(strings.Join(errorMessages, "; "))
 		}
 		return err
 	}
