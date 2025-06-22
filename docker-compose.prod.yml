@@ -1,0 +1,49 @@
+networks:
+  appnet:
+
+services:
+  mongodb:
+    image: mongo:7
+    restart: always
+    ports:
+      - "${DB_PORT}:27017"
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    volumes:
+      - ./.data/mongodb:/data/db
+    networks:
+      - appnet
+
+  server:
+    image: peekaping/server:latest
+    env_file:
+      - .env
+    expose: ["8034"]
+    depends_on:
+      - mongodb
+    networks:
+      - appnet
+
+  web:
+    image: peekaping/web:latest
+    expose: ["80"]
+    depends_on:
+      - server
+    networks:
+      - appnet
+
+  gateway:
+    image: nginx:latest
+    ports:
+      - "2222:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - server
+      - web
+    networks:
+      - appnet
