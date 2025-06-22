@@ -66,7 +66,9 @@ jobs:
           # platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-web:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-web:latest
 
       - name: Build and push Server image
         id: build_server
@@ -77,7 +79,9 @@ jobs:
           # platforms: linux/amd64,linux/arm64
           tags: |
             ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}
+            ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-server:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-server:latest
 
       - name: Commit and tag version bump
         run: |
@@ -97,11 +101,11 @@ jobs:
             ## Docker Images
 
             ### GitHub Container Registry (GHCR)
-            - UI: `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}`
-            - Server: `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}`
+            - UI: `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}` / `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-web:latest`
+            - Server: `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}` / `ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}-server:latest`
 
             ### Docker Hub
-            - UI: `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}`
-            - Server: `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}`
+            - UI: `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-web:${{ github.event.inputs.version }}` / `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-web:latest`
+            - Server: `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-server:${{ github.event.inputs.version }}` / `${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}-server:latest`
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
