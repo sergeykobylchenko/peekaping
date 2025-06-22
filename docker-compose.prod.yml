@@ -22,9 +22,11 @@ services:
     image: 0xfurai/peekaping-server:latest
     env_file:
       - .env
-    expose: ["8034"]
     depends_on:
       - mongodb
+    environment:
+      DB_HOST: mongodb
+      DB_PORT: 27017
     networks:
       - appnet
 
