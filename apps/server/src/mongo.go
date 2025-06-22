@@ -8,7 +8,6 @@ import (
 	"go.mongodb.org/mongo-driver/event"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"go.uber.org/zap"
 )
 
@@ -63,9 +62,10 @@ func ProvideMongoDB(
 		logger.Error("could not connect to mongodb", err)
 		return nil, err
 	}
-	if err := client.Ping(ctx, readpref.Primary()); err != nil {
-		logger.Error("could not ping mongodb", err)
-		return nil, err
-	}
+	logger.Info("connected to mongodb")
+	// if err := client.Ping(ctx, readpref.Primary()); err != nil {
+	// 	logger.Error("could not ping mongodb", err)
+	// 	return nil, err
+	// }
 	return client, nil
 }
