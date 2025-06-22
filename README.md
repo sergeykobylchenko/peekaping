@@ -56,6 +56,17 @@ Peekaping is a powerful, feature-rich uptime monitoring system similar to Uptime
 - Go 1.24+ (for development)
 
 
+## 🚀 Quick start
+
+**Create environment file in root:**
+```bash
+cp .env.example .env
+# Edit .env with your configuration
+
+# Run docker compose
+docker-compose -f docker-compose.prod.yml up -d
+```
+
 ## 🛠 Development Setup
 
 ### Full Stack Development
@@ -63,9 +74,7 @@ Peekaping is a powerful, feature-rich uptime monitoring system similar to Uptime
 ```bash
 cp .env.example .env
 # Edit .env with your configuration
-```
 
-```bash
 # Install all dependencies
 pnpm install
 
@@ -79,12 +88,20 @@ turbo run dev docs:watch
 ### Environment Variables
 
 ```env
-# Database
 DB_USER=root
 DB_PASSWORD=your-secure-password
 DB_NAME=peekaping
 DB_HOST=localhost
 DB_PORT=6001
+
+PORT=8034
+CLIENT_URL="http://localhost:5173"
+ACCESS_TOKEN_EXPIRED_IN=1m
+ACCESS_TOKEN_SECRET_KEY=secret-key
+REFRESH_TOKEN_EXPIRED_IN=60m
+REFRESH_TOKEN_SECRET_KEY=secret-key
+MODE=prod # logging
+TZ="America/New_York"
 ```
 
 ## 🔒 Security
@@ -101,25 +118,6 @@ DB_PORT=6001
 - Secure your MongoDB instance
 - Use HTTPS in production
 
-## 🚀 Production Deployment
-
-### Docker Production Setup
-
-1. **Build production images:**
-```bash
-# Build server
-cd apps/server
-docker build -t peekaping/server:latest .
-
-# Build web client
-cd ../web
-docker build -t peekaping/web:latest .
-```
-
-2. **Deploy with optimized compose:**
-```bash
-docker-compose -f docker-compose.prod.yml up -d
-```
 
 ### Reverse Proxy Setup
 
