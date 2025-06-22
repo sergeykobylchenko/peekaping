@@ -19,7 +19,7 @@ services:
       - appnet
 
   server:
-    image: peekaping/server:latest
+    image: 0xfurai/peekaping-server:latest
     env_file:
       - .env
     expose: ["8034"]
@@ -29,7 +29,7 @@ services:
       - appnet
 
   web:
-    image: peekaping/web:latest
+    image: 0xfurai/peekaping-web:latest
     expose: ["80"]
     depends_on:
       - server
