@@ -10,6 +10,8 @@ Peekaping is a powerful, feature-rich uptime monitoring system similar to Uptime
 ![TypeScript](https://img.shields.io/badge/typescript-%23007acc.svg?style=flat&logo=typescript&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/mongodb-4ea94b.svg?style=flat&logo=mongodb&logoColor=white)
 
+![Peekaping Dashboard](./pictures/monitor.png)
+
 ## ✨ Features
 
 ### 🔍 **Monitoring Types**
