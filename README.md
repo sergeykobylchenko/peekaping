@@ -15,6 +15,7 @@ The client-side application is also strongly typed and built with modern React p
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361dafb)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007acc.svg?style=flat&logo=typescript&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/mongodb-4ea94b.svg?style=flat&logo=mongodb&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=flat&logo=docker&logoColor=white)
 
 ![Peekaping Dashboard](./pictures/monitor.png)
 
@@ -61,9 +62,13 @@ The client-side application is also strongly typed and built with modern React p
 - Node.js 18+ and pnpm (for development)
 - Go 1.24+ (for development)
 
+## 🐳 Docker
 
-## 🚀 Quick start
+### Official Images
+- **Server**: [`0xfurai/peekaping-server`](https://hub.docker.com/r/0xfurai/peekaping-server) - Go backend API
+- **Web**: [`0xfurai/peekaping-web`](https://hub.docker.com/r/0xfurai/peekaping-web) - React frontend
 
+### Quick Start with Docker
 **Create environment file in root:**
 ```bash
 cp .env.example .env
