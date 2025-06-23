@@ -62,6 +62,20 @@ The client-side application is also strongly typed and built with modern React p
 - Node.js 18+ and pnpm (for development)
 - Go 1.24+ (for development)
 
+```bash
+# 1. Grab defaults
+curl -L https://raw.githubusercontent.com/0xfurai/peekaping/main/.env.example         -o .env
+curl -L https://raw.githubusercontent.com/0xfurai/peekaping/main/docker-compose.prod.yml -o docker-compose.yml
+curl -L https://raw.githubusercontent.com/0xfurai/peekaping/main/nginx.conf           -o nginx.conf
+
+# 2. Fire it up
+docker compose up -d
+
+# 3. Visit the UI
+open http://localhost:8383
+```
+
+
 ## 🐳 Docker
 
 ### Official Images
