@@ -133,7 +133,7 @@ TZ="America/New_York"
 
 ### Reverse Proxy Setup
 
-Example Nginx configuration included in `infra/nginx.conf`.
+Example Nginx configuration included in `nginx.conf`.
 
 ## 🤝 Contributing
 
