@@ -123,10 +123,7 @@ const Notifications = ({ onNewNotifier }: { onNewNotifier: () => void }) => {
                       </SelectItem>
                       {availableNotifiers.map((n) => (
                         <SelectItem key={n.id} value={n.id || "none"}>
-                          <span
-                            className="truncate max-w-[300px] sm:max-w-full"
-                            title={n.name}
-                          >
+                          <span className="truncate max-w-[300px] sm:max-w-full">
                             {n.name}
                           </span>
                         </SelectItem>
